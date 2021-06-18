@@ -4,9 +4,27 @@ $(document).ready(function () {
     this.crust = "d";
     this.topping = "d";
   }
-
+  var pizza = new pizza()
   $("form#Q1").submit(function () {
-    alert("You clicked a radio")
+    event.preventDefault();
+    const size = $("input:radio[name=size]:checked").val();
+    console.log(size)
+    $("#Q1").hide();
+    $("#Q2").show();
+    $("#smallpizza").hide();
+    $("#mediumpizza").hide();
+    $("#largepizza").hide();
+  });
+
+  $("form#Q2").submit(function () {
+    event.preventDefault();
+    const crust = $("input:radio[name=crust]:checked").val();
+    console.log(size)
+    $("#Q2").hide();
+    $("#Q3").show();
+    $("#panpizza").hide();
+    $("#handpizza").hide();
+    $("#thinpizza").hide();
   });
 
   $('input[name="size"]').click(function () {

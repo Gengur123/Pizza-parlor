@@ -3,3 +3,6 @@ img {
   width: 500px;
   height: 400px;
 }
+#Q2, #Q3 {
+  display: none;
+}
