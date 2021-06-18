@@ -1,14 +1,19 @@
 $(document).ready(function () {
-  function pizza() {
-    this.size = "d";
-    this.crust = "d";
-    this.topping = "d";
+  function Pizza() {
+    this.size = "";
+    this.crust = "";
+    this.topping = "";
   }
-  var pizza = new pizza()
+  var pizza = new Pizza()
+  Pizza.prototype.price = function() {
+  console.log(pizza)
+  }
   $("form#Q1").submit(function () {
     event.preventDefault();
     const size = $("input:radio[name=size]:checked").val();
+    pizza.size = size
     console.log(size)
+    console.log(pizza.size)
     $("#Q1").hide();
     $("#Q2").show();
     $("#smallpizza").hide();
@@ -19,12 +24,24 @@ $(document).ready(function () {
   $("form#Q2").submit(function () {
     event.preventDefault();
     const crust = $("input:radio[name=crust]:checked").val();
-    console.log(size)
+    console.log(crust)
     $("#Q2").hide();
     $("#Q3").show();
     $("#panpizza").hide();
     $("#handpizza").hide();
     $("#thinpizza").hide();
+  });
+
+  $("form#Q3").submit(function () {
+    event.preventDefault();
+    const topping = $("input:radio[name=topping]:checked").val();
+    console.log(topping)
+    $("#Q2").hide();
+    $("#Q3").show();
+    $("#pepperonipizza").hide();
+    $("#meatpizza").hide();
+    $("#supremepizza").hide();
+    $("#btn").hide();
   });
 
   $('input[name="size"]').click(function () {
