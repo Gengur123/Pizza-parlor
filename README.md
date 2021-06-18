@@ -24,7 +24,7 @@ _This apllication allows users to customize there pizza with a array of differen
 
 ## Known Bugs
 
-* _No known bugs_
+* _Total doesn't work_
 
 ## License
 
