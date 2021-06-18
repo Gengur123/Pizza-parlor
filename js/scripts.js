@@ -3,17 +3,22 @@ $(document).ready(function () {
     this.size = "";
     this.crust = "";
     this.topping = "";
+    this.price = "";
+  }
+
+  Pizza.prototype.price = function(size) {
+    this.size = size;
+    if (this.size === 'small') {
+      this.price = "5$"
+    } else if (this.size === 'medium') {
+      this.price = "7$"
+    } else {
+      this.price = "10$"
+    }
   }
   var pizza = new Pizza()
-  Pizza.prototype.price = function() {
-    if (this.size = "small")
-      price = "5$"
-    if (this.size ="medium")
-      price = "7$"
-    else;
-      price = "10$"
+  console.log(pizza)
 
-  }
   $("form#Q1").submit(function () {
     event.preventDefault();
     const size = $("input:radio[name=size]:checked").val();
@@ -40,13 +45,13 @@ $(document).ready(function () {
     event.preventDefault();
     const topping = $("input:radio[name=topping]:checked").val();
     pizza.topping = topping
-    $("#Q2").hide();
     $("#Q3").show();
     $("#pepperonipizza").hide();
     $("#meatpizza").hide();
     $("#supremepizza").hide();
-    $("#btn").hide();
-    
+    $(".total").append(Pizza.price);
+    console.log(pizza)
+    console.log (pizza.price)
   });
 
   $('input[name="size"]').click(function () {
@@ -106,3 +111,5 @@ $(document).ready(function () {
     }
   });
 });
+
+
