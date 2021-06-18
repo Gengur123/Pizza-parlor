@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  function pizza() {
+    this.size = "d";
+    this.crust = "d";
+    this.topping = "d";
+  }
+
   $("form#Q1").submit(function(){
     alert("You clicked a radio")
   });
