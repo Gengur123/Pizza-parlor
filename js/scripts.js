@@ -2,7 +2,7 @@
   function Pizza() {
     this.size = "";
     this.crust = "";
-    this.topping = [];
+    this.toppings = [];
     this.price = 0;
   }
 
@@ -16,14 +16,16 @@
       this.price += 10;
     }
   }
-  Pizza.prototype.priceTopping = function(topping){
-    
+  Pizza.prototype.priceTopping = function(toppings) {
+    this.toppings = toppings
+    for(let i = 0; i < this.toppings.length; i++){
+      this.price += parseInt(toppings[i].value)
+    }
   }
   
 //UI Logic
 $(document).ready(function () {
   var pizza = new Pizza()
-  console.log(pizza)
 
   $("form#Q1").submit(function () {
     event.preventDefault();
@@ -31,9 +33,6 @@ $(document).ready(function () {
     pizza.size = size
     $("#Q1").hide();
     $("#Q2").show();
-    $("#smallpizza").hide();
-    $("#mediumpizza").hide();
-    $("#largepizza").hide();
   });
 
   $("form#Q2").submit(function () {
@@ -42,22 +41,14 @@ $(document).ready(function () {
     pizza.crust = crust
     $("#Q2").hide();
     $("#Q3").show();
-    $("#panpizza").hide();
-    $("#handpizza").hide();
-    $("#thinpizza").hide();
   });
 
   $("form#Q3").submit(function () {
     event.preventDefault();
-    pizza.priceTopping($("input:radio[name=topping]:checked").val());
-    pizza.topping = topping
+    pizza.toppings = $("input[type='checkbox']:checked");
+    pizza.priceTopping($("input[type='checkbox']:checked"));
     $("#Q3").show();
-    $("#pepperonipizza").hide();
-    $("#meatpizza").hide();
-    $("#supremepizza").hide();
     $("#total").append(pizza.price);
-    console.log(pizza)
-    console.log (pizza.price)
     $("#btn1").hide();
   });
 

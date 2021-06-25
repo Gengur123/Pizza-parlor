@@ -18,19 +18,19 @@
           <p>What size of pizza would you like? </p>
           <label>
             <input id="size" type="radio" name="size" value="small" checked>
-            Small, 80 cal/slice (8 slices)
+            Small, 80 cal/slice (8 slices) - 5$
           </label>
         </div>
         <div class="option">
           <label>
             <input id="size" type="radio" name="size" value="medium">
-            Medium, 80 cal/slice (8 slices)
+            Medium, 80 cal/slice (8 slices) - 7$
           </label>
         </div>
         <div class="option">
           <label>
             <input id="size" type="radio" name="size" value="large">
-            Large, 120 cal/slice (8 slices)
+            Large, 120 cal/slice (8 slices) - 10$
           </label>
         </div>
       </div>
@@ -66,22 +66,12 @@
 
     <form id="Q3">
       <div class="form-group">
-        <div class="option">
-          <fieldset>
-            <p>Choose your toppings!</p>
-            <div>
-              <input type="checkbox" id="topping" name="topping" value="pepperoni" checked>
-              <label for="coding">Pepperoni</label>
-            </div>
-            <div>
-              <input type="checkbox" id="topping" name="topping" value="sausage">
-              <label for="music">Sausage</label>
-            </div>
-            <div>
-              <input type="checkbox" id="topping" name="topping" value="mushroom">
-              <label for="music">Mushrooms</label>
-            </div>
-          </fieldset>
+        <p>What toppings would you like?</p>
+        <input type="checkbox" name="toppings" value=1> Pepperoni - 1$<br>
+        <input type="checkbox" name="toppings" value=1> Sausage - 1$<br>
+        <input type="checkbox" name="toppings" value=2> Mushroom - 2$<br>
+        <input type="checkbox" name="toppings" value=4> Green Peppers - 4$<br>
+      </div>
       <button id="btn1" type="submit" class="btn btn-primary">Receipt</button>
       <p>Your total is : <span id="total"></span>$</p>
       <p>3/3</p>
