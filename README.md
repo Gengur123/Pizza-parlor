@@ -24,7 +24,7 @@ _This apllication allows users to customize there pizza with a array of differen
 
 ## Known Bugs
 
-* _Total doesn't work_
+* _No known bugs_
 
 ## License
 
@@ -35,3 +35,20 @@ _This apllication allows users to customize there pizza with a array of differen
 ## Contact Information
 
 _Arthur Lee [meleearthur@gmail.com](meleearthur@gmail.com)_
+
+
+Describe: function Pizza()
+Test: It will return an object containing the size, crust, topping and prize of the pizza.
+Expected: pizza = Pizza(small, thin, pepperoni, 5$)
+
+Describe: Pizza.prototype.prizeSize()
+Test: It will change the price depending on a small pizza
+Expected: pizza.size = small, pizza.price = 5$
+
+Describe: Pizza.prototype.prizeSize()
+Test: It will change the price depending on a medium pizza.
+Expected: pizza.size = medium, pizza.price = 7$
+
+Describe: Pizza.prototype.prizeSize()
+Test: It will change the price depending on a large pizza
+Expected: pizza.size = large, pizza.price = 10$

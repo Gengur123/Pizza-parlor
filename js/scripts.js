@@ -1,8 +1,8 @@
-
+//Business Logic
   function Pizza() {
     this.size = "";
     this.crust = "";
-    this.topping = "";
+    this.topping = [];
     this.price = 0;
   }
 
@@ -16,7 +16,11 @@
       this.price += 10;
     }
   }
+  Pizza.prototype.priceTopping = function(topping){
+    
+  }
   
+//UI Logic
 $(document).ready(function () {
   var pizza = new Pizza()
   console.log(pizza)
@@ -25,13 +29,6 @@ $(document).ready(function () {
     event.preventDefault();
     pizza.priceSize($("input:radio[name=size]:checked").val());
     pizza.size = size
-    console.log(pizza.size)
-    console.log(pizza)
-    
-    console.log(pizza.priceSize)
-    console.log(pizza.price)
-    console.log(pizza)
-    console.log()
     $("#Q1").hide();
     $("#Q2").show();
     $("#smallpizza").hide();
@@ -52,7 +49,7 @@ $(document).ready(function () {
 
   $("form#Q3").submit(function () {
     event.preventDefault();
-    const topping = $("input:radio[name=topping]:checked").val();
+    pizza.priceTopping($("input:radio[name=topping]:checked").val());
     pizza.topping = topping
     $("#Q3").show();
     $("#pepperonipizza").hide();
@@ -61,64 +58,9 @@ $(document).ready(function () {
     $("#total").append(pizza.price);
     console.log(pizza)
     console.log (pizza.price)
+    $("#btn1").hide();
   });
 
-  $('input[name="size"]').click(function () {
-    let size = $('input[name="size"]:checked').val()
-    if (size === "small") {
-      $("#smallpizza").show();
-      $("#mediumpizza").hide();
-      $("#largepizza").hide();
-
-    } else if (size === "medium") {
-      $("#mediumpizza").show();
-      $("#smallpizza").hide();
-      $("#largepizza").hide();
-
-    } else {
-      $("#largepizza").show();
-      $("#smallpizza").hide();
-      $("#mediumpizza").hide();
-    }
-  });
-
-  $('input[name="crust"]').click(function () {
-    let crust = $('input[name="crust"]:checked').val()
-    if (crust === "original") {
-      $("#panpizza").show();
-      $("#handpizza").hide();
-      $("#thinpizza").hide();
-
-    } else if (crust === "tossed") {
-      $("#handpizza").show();
-      $("#panpizza").hide();
-      $("#thinpizza").hide();
-      
-    } else {
-      $("#thinpizza").show();
-      $("#handpizza").hide();
-      $("#panpizza").hide();
-    }
-  });
-
-  $('input[name="topping"]').click(function () {
-    let topping = $('input[name="topping"]:checked').val()
-    if (topping === "pepperoni") {
-      $("#pepperonipizza").show();
-      $("#meatpizza").hide();
-      $("#supremepizza").hide();
-
-    } else if (topping === "meat") {
-      $("#meatpizza").show();
-      $("#pepperonipizza").hide();
-      $("#supremepizza").hide();
-      
-    } else {
-      $("#supremepizza").show();
-      $("#pepperonipizza").hide();
-      $("#meatpizza").hide();
-    }
-  });
 });
 
 

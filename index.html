@@ -67,37 +67,24 @@
     <form id="Q3">
       <div class="form-group">
         <div class="option">
-          <p>What pizza would you like?</p>
-          <label>
-            <input id="topping" type="radio" name="topping" value="pepperoni" checked>
-            Pepperoni Pizza
-          </label>
-        </div>
-        <div class="option">
-          <label>
-            <input id="topping" type="radio" name="topping" value="meat">
-            Meat Lovers (Pepperoni, italian sausage, ham and bacon)
-          </label>
-        </div>
-        <div class="option">
-          <label>
-            <input id="topping" type="radio" name="topping" value="supreme">
-            Supreme Pizza (Pepperoni, pork, beef, mushrooms, green bell peppers and reaad onions.)
-          </label>
-        </div>
-      </div>
-      <button id="btn" type="submit" class="btn btn-primary">Receipt</button>
-      <p>Your total is : <span id="total"></span></p>
+          <fieldset>
+            <p>Choose your toppings!</p>
+            <div>
+              <input type="checkbox" id="topping" name="topping" value="pepperoni" checked>
+              <label for="coding">Pepperoni</label>
+            </div>
+            <div>
+              <input type="checkbox" id="topping" name="topping" value="sausage">
+              <label for="music">Sausage</label>
+            </div>
+            <div>
+              <input type="checkbox" id="topping" name="topping" value="mushroom">
+              <label for="music">Mushrooms</label>
+            </div>
+          </fieldset>
+      <button id="btn1" type="submit" class="btn btn-primary">Receipt</button>
+      <p>Your total is : <span id="total"></span>$</p>
       <p>3/3</p>
     </form>
-    <img id="smallpizza" src="images/smallpizza.jpg" alt="smallpizza">
-    <img id="mediumpizza" src="images/mediumpizza.jpg" alt="mediumpizza">
-    <img id="largepizza" src="images/largepizza.jpg" alt="largepizza">
-    <img id="panpizza" src="images/panpizza.jpg" alt="panpizza">
-    <img id="handpizza" src="images/handtossed.jpg" alt="handpizza">
-    <img id="thinpizza" src="images/thincrust.jpg" alt="thinpizza">
-    <img id="pepperonipizza" src="images/pepperoni.jpg" alt="pepperonipizza">
-    <img id="meatpizza" src="images/meatlovers.jpg" alt="meatpizza">
-    <img id="supremepizza" src="images/supreme.jpg" alt="supremepizza">
   </div>
 </body>
