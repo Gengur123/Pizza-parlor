@@ -1,28 +1,37 @@
-$(document).ready(function () {
+
   function Pizza() {
     this.size = "";
     this.crust = "";
     this.topping = "";
-    this.price = "";
+    this.price = 0;
   }
 
-  Pizza.prototype.price = function(size) {
+  Pizza.prototype.priceSize = function(size) {
     this.size = size;
     if (this.size === 'small') {
-      this.price = "5$"
+      this.price += 5;
     } else if (this.size === 'medium') {
-      this.price = "7$"
+      this.price += 7;
     } else {
-      this.price = "10$"
+      this.price += 10;
     }
   }
+  
+$(document).ready(function () {
   var pizza = new Pizza()
   console.log(pizza)
 
   $("form#Q1").submit(function () {
     event.preventDefault();
-    const size = $("input:radio[name=size]:checked").val();
+    pizza.priceSize($("input:radio[name=size]:checked").val());
     pizza.size = size
+    console.log(pizza.size)
+    console.log(pizza)
+    
+    console.log(pizza.priceSize)
+    console.log(pizza.price)
+    console.log(pizza)
+    console.log()
     $("#Q1").hide();
     $("#Q2").show();
     $("#smallpizza").hide();
@@ -49,7 +58,7 @@ $(document).ready(function () {
     $("#pepperonipizza").hide();
     $("#meatpizza").hide();
     $("#supremepizza").hide();
-    $(".total").append(Pizza.price);
+    $("#total").append(pizza.price);
     console.log(pizza)
     console.log (pizza.price)
   });
