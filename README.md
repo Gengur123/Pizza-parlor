@@ -37,18 +37,26 @@ _This apllication allows users to customize there pizza with a array of differen
 _Arthur Lee [meleearthur@gmail.com](meleearthur@gmail.com)_
 
 
-Describe: function Pizza()
-Test: It will return an object containing the size, crust, topping and prize of the pizza.
-Expected: pizza = Pizza(small, thin, pepperoni, 5$)
+Describe: Pizza()
+Test: It should return an empty object that contains a blank size, crust topping and a 0 price. 
+Expected: Pizza {size: "", crust: "", toppings: [], price: 0}
 
 Describe: Pizza.prototype.prizeSize()
-Test: It will change the price depending on a small pizza
-Expected: pizza.size = small, pizza.price = 5$
+Test: It should return the price of 5 when passing in a small pizza.
+Expected: pizza.size = small =>>> pizza.price = 5$
 
 Describe: Pizza.prototype.prizeSize()
-Test: It will change the price depending on a medium pizza.
-Expected: pizza.size = medium, pizza.price = 7$
+Test: It should return the price of 7 when passing in a medium pizza.
+Expected: pizza.size = medium =>>>  pizza.price = 7$
 
 Describe: Pizza.prototype.prizeSize()
-Test: It will change the price depending on a large pizza
-Expected: pizza.size = large, pizza.price = 10$
+Test: It should return the price of 10 when passing in a large pizza.
+Expected: pizza.size = large =>>> pizza.price = 10$
+
+Describe: Pizza.prototype.priceTopping()
+Test: It should loop the amount of times based on the length of the toppings array
+Expected: toppings = [1,2] ===>>> loops 2 times
+
+Describe: Pizza.prototype.priceTopping()
+Test: It should add the values of the toppings to the this.price variable
+Expected: toppings = [1,2] ===>>> this.price = +3
