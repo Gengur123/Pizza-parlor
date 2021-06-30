@@ -1,13 +1,12 @@
 //Business Logic
-  function Pizza() {
-    this.size = "";
-    this.crust = "";
-    this.toppings = [];
+  function Pizza(size, crust, toppings) {
+    this.size = size;
+    this.crust = crust;
+    this.toppings = toppings;
     this.price = 0;
   }
 
-  Pizza.prototype.priceSize = function(size) {
-    this.size = size;
+  Pizza.prototype.priceSize = function() {
     if (this.size === 'small') {
       this.price += 5;
     } else if (this.size === 'medium') {
@@ -16,37 +15,38 @@
       this.price += 10;
     }
   }
-  Pizza.prototype.priceTopping = function(toppings) {
-    this.toppings = toppings
+  Pizza.prototype.priceTopping = function() {
     for(let i = 0; i < this.toppings.length; i++){
-      this.price += parseInt(toppings[i].value)
+      this.price += parseInt(this.toppings[i].value)
     }
   }
   
 //UI Logic
 $(document).ready(function () {
-  var pizza = new Pizza()
+  let size;
+  let crust;
+  let toppings;
 
   $("form#Q1").submit(function () {
     event.preventDefault();
-    pizza.priceSize($("input:radio[name=size]:checked").val());
-    pizza.size = size
+    size = $("input:radio[name=size]:checked").val();
     $("#Q1").hide();
     $("#Q2").show();
   });
 
   $("form#Q2").submit(function () {
     event.preventDefault();
-    const crust = $("input:radio[name=crust]:checked").val();
-    pizza.crust = crust
+    crust = $("input:radio[name=crust]:checked").val();
     $("#Q2").hide();
     $("#Q3").show();
   });
 
   $("form#Q3").submit(function () {
     event.preventDefault();
-    pizza.toppings = $("input[type='checkbox']:checked");
-    pizza.priceTopping($("input[type='checkbox']:checked"));
+    toppings = $("input[type='checkbox']:checked");
+    let pizza = new Pizza(size,crust,toppings)
+    pizza.priceSize()
+    pizza.priceTopping()
     $("#Q3").show();
     $("#total").append(pizza.price);
     $("#btn1").hide();
